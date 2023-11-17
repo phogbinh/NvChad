@@ -87,6 +87,15 @@ local default_plugins = {
     end,
   },
 
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+  },
+
   -- git stuff
   {
     "lewis6991/gitsigns.nvim",
@@ -157,6 +166,14 @@ local default_plugins = {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("plugins.configs.others").luasnip(opts)
+        end,
+      },
+
+      {
+        -- copilot plugin
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
         end,
       },
 
